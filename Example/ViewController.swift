@@ -15,7 +15,6 @@ import SymbolicIOSKit
 class ViewController: UIViewController {
 
     // MARK: Properties
-    
     /// The Label
     lazy var label: UILabel = {
         let label = UILabel()
@@ -26,38 +25,28 @@ class ViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    
     private let web = SymbolicWebController()
     // MARK: View-Lifecycle
-    
     /// View did load
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openSymbolic))
-    
-    
-        
     }
-    
     @objc private func openSymbolic() {
-        let config = SymbolicConfig.init(clientId: "9d3ecddc52be82088e15ca77d61e504792ef078e96eff64674bf910839675a17", authorizeURL: "https://identitas.extrainteger.com/oauth/authorize", responseType: "code", redirectURI: "extrainteger.opinium://oauth", scope: nil)
+        let config = SymbolicConfig.init(clientId: "YOUR_CLIENT_ID", authorizeURL: "YOUR_AUTH_URL", responseType: "YOUR_RESPONSE_TYPE", redirectURI: "YOUR_REDIRECT_URI", scope: nil)
         web.load(config)
         web.delegate = self
         navigationController?.pushViewController(web, animated: true)
     }
-    
     /// LoadView
     override func loadView() {
         self.view = self.label
     }
-
 }
 
 extension ViewController: ISymbolicWebDelegate {
     func getCodeQueryString(code: String) {
-        print("CODE: \(code)")
         web.close()
     }
 }

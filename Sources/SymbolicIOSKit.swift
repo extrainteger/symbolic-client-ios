@@ -11,16 +11,4 @@
 
 open class SymbolicIOSKit: NSObject {
   
-  public typealias Completion = (String?, Error?) -> Void
-  
-  public let config: SymbolicConfig
-  
-  private var executing = false
-  
-  // MARK: - Initialization
-  public init(config: SymbolicConfig) {
-    self.config = config
-  }
-  
-  
 }
