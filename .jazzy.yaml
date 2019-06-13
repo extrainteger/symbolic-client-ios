@@ -1,0 +1,7 @@
+# SymbolicIOSKit document generator jazzy settings
+
+copyright: Copyright 2019 Extrainteger
+author: Muhammad Hanif Sugiyanto
+xcodebuild_arguments: [-target, SymbolicIOSKit-iOS]
+clean: true
+output: ./Documentation
